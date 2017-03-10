@@ -17,15 +17,15 @@ describe("test momentjs", function () {
 			expect(day.toISOString()).toBe('2017-03-15T23:44:43.000Z');
 		});
 
-		it("supports adding 7 days to current date", function () {
+		it("supports adding 7 days to start date", function () {
 			expect(day.add(7, 'days').toISOString()).toBe('2017-03-22T23:44:43.000Z')
 		});
 
-		it("supports adding 1 week to current date", function () {
+		it("supports adding 1 week to start date", function () {
 			expect(day.add(1, 'week').toISOString()).toBe('2017-03-22T23:44:43.000Z')
 		});
 
-		it("supports adding 1 month to current date", function () {
+		it("supports adding 1 month to start date", function () {
 			expect(day.add(1, 'month').toISOString()).toBe('2017-04-15T23:44:43.000Z')
 		});
 
@@ -58,110 +58,108 @@ describe("test momentjs", function () {
 			expect(day.toISOString()).toBe('2017-03-31T23:44:43.000Z');
 		});
 
-		it("supports adding 1 month to current date", function () {
+		it("supports adding 1 month to start date", function () {
 			expect(day.add(1, 'month').toISOString()).toBe('2017-04-30T23:44:43.000Z')
 		});
 
 	});
 
 	describe("Generating Labels Based On Date, Time, Timezone, and Frequency", function () {
-		var dayChicago;
-		var dayTokyo;
-		var currentSelectedDate;
+		var startDate;
 		var moment = require('moment');
 
 
 		describe("For Standard Chicago Dates", function () {
 			beforeEach(function () {
-				dayChicago = moment.tz("2013-11-18 11:55", "America/Chicago");
+				startDate = moment.tz("2013-11-18 11:55", "America/Chicago");
 			});
 
 			it("supports parsing a standard date time format ", function () {
-				expect(dayChicago.toISOString()).toBe('2013-11-18T17:55:00.000Z');
+				expect(startDate.toISOString()).toBe('2013-11-18T17:55:00.000Z');
 			});
 
-			it("supports adding 1 month to current date", function () {
-				expect(dayChicago.add(1, 'month').toISOString()).toBe('2013-12-18T17:55:00.000Z')
+			it("supports adding 1 month to start date", function () {
+				expect(startDate.add(1, 'month').toISOString()).toBe('2013-12-18T17:55:00.000Z')
 			});
 
-			it("supports adding 1 week to current date", function () {
-				expect(dayChicago.add(1, 'week').toISOString()).toBe('2013-11-25T17:55:00.000Z')
+			it("supports adding 1 week to start date", function () {
+				expect(startDate.add(1, 'week').toISOString()).toBe('2013-11-25T17:55:00.000Z')
 			});
 		})
 
 		describe("For Rollover Chicago Dates", function () {
 			beforeEach(function () {
-				dayChicago = moment.tz("2016-03-31 11:55", "America/Chicago");
+				startDate = moment.tz("2016-03-31 11:55", "America/Chicago");
 			});
 
 			it("supports parsing a standard date time format ", function () {
-				expect(dayChicago.toISOString()).toBe('2016-03-31T16:55:00.000Z');
+				expect(startDate.toISOString()).toBe('2016-03-31T16:55:00.000Z');
 			});
 
-			it("supports adding 1 month to current date", function () {
-				expect(dayChicago.add(1, 'month').toISOString()).toBe('2016-04-30T16:55:00.000Z')
+			it("supports adding 1 month to start date", function () {
+				expect(startDate.add(1, 'month').toISOString()).toBe('2016-04-30T16:55:00.000Z')
 			});
 
-			it("supports adding 1 week to current date", function () {
-				expect(dayChicago.add(1, 'week').toISOString()).toBe('2016-04-07T16:55:00.000Z')
+			it("supports adding 1 week to start date", function () {
+				expect(startDate.add(1, 'week').toISOString()).toBe('2016-04-07T16:55:00.000Z')
 			});
 		})
 
 		describe("For Standard Tokyo Dates", function () {
 			beforeEach(function () {
-				dayTokyo = moment.tz("2013-11-18 11:55", "Asia/Tokyo");
+				startDate = moment.tz("2013-11-18 11:55", "Asia/Tokyo");
 			});
 
 			it("supports parsing a standard date time format ", function () {
-				expect(dayTokyo.toISOString()).toBe('2013-11-18T02:55:00.000Z');
+				expect(startDate.toISOString()).toBe('2013-11-18T02:55:00.000Z');
 			});
 
-			it("supports adding 1 month to current date", function () {
-				expect(dayTokyo.add(1, 'month').toISOString()).toBe('2013-12-18T02:55:00.000Z')
+			it("supports adding 1 month to start date", function () {
+				expect(startDate.add(1, 'month').toISOString()).toBe('2013-12-18T02:55:00.000Z')
 			});
 
-			it("supports adding 1 week to current date", function () {
-				expect(dayTokyo.add(1, 'week').toISOString()).toBe('2013-11-25T02:55:00.000Z')
+			it("supports adding 1 week to start date", function () {
+				expect(startDate.add(1, 'week').toISOString()).toBe('2013-11-25T02:55:00.000Z')
 			});
 		})
 
 		describe("For Rollover Tokyo Dates", function () {
 			beforeEach(function () {
-				dayTokyo = moment.tz("2016-02-01 00:00", "Asia/Tokyo");
+				startDate = moment.tz("2016-02-01 00:00", "Asia/Tokyo");
 			});
 
 			it("supports parsing a standard date time format ", function () {
-				expect(dayTokyo.toISOString()).toBe('2016-01-31T15:00:00.000Z');
+				expect(startDate.toISOString()).toBe('2016-01-31T15:00:00.000Z');
 			});
 
-			it("supports adding 1 month to current date", function () {
-				expect(dayTokyo.add(1, 'month').toISOString()).toBe('2016-02-29T15:00:00.000Z')
+			it("supports adding 1 month to start date", function () {
+				expect(startDate.add(1, 'month').toISOString()).toBe('2016-02-29T15:00:00.000Z')
 			});
 
-			it("supports adding 1 week to current date", function () {
-				expect(dayTokyo.add(2, 'month').toISOString()).toBe('2016-03-31T15:00:00.000Z')
+			it("supports adding 1 week to start date", function () {
+				expect(startDate.add(2, 'month').toISOString()).toBe('2016-03-31T15:00:00.000Z')
 			});
 		})
 
 		describe("For Rollover California Dates", function () {
 			beforeEach(function () {
-				currentSelectedDate = moment.tz("2017-01-28 23:30", "America/Los_Angeles");
+				startDate = moment.tz("2017-01-28 23:30", "America/Los_Angeles");
 			});
 
 			it("supports parsing a standard date time format ", function () {
-				expect(currentSelectedDate.toISOString()).toBe('2017-01-29T07:30:00.000Z');
+				expect(startDate.toISOString()).toBe('2017-01-29T07:30:00.000Z');
 			});
 
-			it("supports adding 1 month to current date", function () {
-				expect(currentSelectedDate.add(1, 'month').toISOString()).toBe('2017-03-01T07:30:00.000Z')
+			it("supports adding 1 month to start date", function () {
+				expect(startDate.add(1, 'month').toISOString()).toBe('2017-03-01T07:30:00.000Z')
 			});
 
-			it("supports adding 2 month to current date", function () {
-				expect(currentSelectedDate.add(2, 'month').toISOString()).toBe('2017-03-29T06:30:00.000Z')
+			it("supports adding 2 month to start date", function () {
+				expect(startDate.add(2, 'month').toISOString()).toBe('2017-03-29T06:30:00.000Z')
 			});
 
-			it("supports adding 3 month to current date", function () {
-				expect(currentSelectedDate.add(3, 'month').toISOString()).toBe('2017-04-29T06:30:00.000Z')
+			it("supports adding 3 month to start date", function () {
+				expect(startDate.add(3, 'month').toISOString()).toBe('2017-04-29T06:30:00.000Z')
 			});
 		})
 	});
