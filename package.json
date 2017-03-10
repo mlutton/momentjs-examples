@@ -1,0 +1,31 @@
+{
+  "name": "momentjs-examples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlutton/momentjs-examples.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mlutton/momentjs-examples/issues"
+  },
+  "homepage": "https://github.com/mlutton/momentjs-examples#readme",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "jasmine-node": "^1.14.5"
+  },
+  "dependencies": {
+    "moment": "^2.17.1",
+    "moment-timezone": "^0.5.11"
+  }
+}
